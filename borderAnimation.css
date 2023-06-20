@@ -9,6 +9,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
+*::before,
+*::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 :root {
   --shadow: 2px 2px 5px 0px rgb(121, 121, 121);
   --bg-color: rgb(56, 56, 56);
@@ -51,6 +59,8 @@ button {
   transition: .2s;
   border-radius: 4px;
   box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
 }
 
 .card3 button:hover,
@@ -90,6 +100,36 @@ button {
   letter-spacing: 5px;
 }
 
+.card8 button::before {
+  background: linear-gradient(45deg, #413c0f, #548d49, #a4db23, #707070, #b82455);
+  width: 500%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  transition: .3s;
+}
+
+.card8 button::after {
+  content: 'Hover Me';
+  color: white;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card8 button:hover::before {
+  transform: translate(0);
+}
+
+.card8 button:active {
+  transform: scale(.9);
+}
+
+.card8 button:active::before {
+  transform: translate(-50%, 0);
+}
 
 
 
@@ -99,10 +139,7 @@ button {
 
 
 
-
-
-
-footer {
+.card8 footer {
   font-size: 1.2rem;
   width: 100%;
   text-align: center;
